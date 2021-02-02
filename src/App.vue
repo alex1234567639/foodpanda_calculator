@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <HelloWorld msg="今晚，我想來點..."/>
+    <h1>今晚，我想來點...</h1>
+    <HelloWorld/>
     <img class="img" alt="Vue logo" src="./assets/uberEat.png">
   </div>
 </template>
