@@ -8,7 +8,7 @@
     <input class="input-content" type="number" placeholder="請輸入優惠折扣" v-model="discount"> 
     <br>
     <span class="input-title">單人價格：</span>
-    <input class="input-content" type="number" placeholder="請輸入單人價格" v-model="personalPrice"> 
+    <input class="input-content" type="number" placeholder="請輸入單人價格" v-model="personalPrice" @keyup.enter="calculate"> 
     <button class="submit-btn" type="button" @click="calculate">計算</button> 
     <div v-for="(item, index) in priceList" :key="index">
       <span class="originalPrice">原價：{{ item.original }}</span> -----> <span class="discountPrice">{{ item.discount }}</span>
@@ -36,7 +36,7 @@ export default {
       const total = parseInt(this.subtotal) + parseInt(this.shipping)
       console.log(total)
       const discount = ((total - this.discount)/this.subtotal)*this.personalPrice
-      this.priceList.push({original:original, discount:discount})
+      this.priceList.push({original:original, discount:discount.toFixed(2)})
       this.personalPrice = null
     },
     resetList() {
